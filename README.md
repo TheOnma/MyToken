@@ -1,66 +1,79 @@
-## Foundry
+Certainly! Here's the complete `README.md` in a single Markdown block:
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+```markdown
+# MyToken
 
-Foundry consists of:
+MyToken is an ERC20-compliant token built using Solidity and OpenZeppelin libraries. This project includes smart contract deployment scripts and a suite of tests to ensure the functionality of the token.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Requirements
 
-## Documentation
+- [Foundry](https://getfoundry.sh/) for building, testing, and deploying smart contracts.
+- [Node.js](https://nodejs.org/) for managing JavaScript dependencies (if needed).
+- [Git](https://git-scm.com/) for version control.
 
-https://book.getfoundry.sh/
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd MyToken
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   forge install
+   ```
 
 ## Usage
 
-### Build
+### Compile the Contracts
 
-```shell
-$ forge build
+To compile the Solidity contracts, run:
+
+```bash
+forge build
 ```
 
-### Test
+### Run Tests
 
-```shell
-$ forge test
+To run the test suite:
+
+```bash
+forge test
 ```
 
-### Format
+### Deploy the Contract
 
-```shell
-$ forge fmt
+#### Local Deployment
+
+To deploy the contract locally using Anvil:
+
+1. Start Anvil in one terminal:
+
+   ```bash
+   anvil
+   ```
+
+2. Deploy the contract in another terminal:
+
+   ```bash
+   make deploy
+   ```
+
+#### Sepolia Testnet Deployment
+
+To deploy on the Sepolia testnet, ensure you have the following environment variables set: `SEPOLIA_RPC_URL`, `ACCOUNT`, `SENDER`, `ETHERSCAN_API_KEY`.
+
+Then run:
+
+```bash
+make deploy-sepolia
 ```
 
-### Gas Snapshots
+## License
 
-```shell
-$ forge snapshot
+This project is licensed under the MIT License.
 ```
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
